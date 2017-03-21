@@ -23,3 +23,15 @@ select customer#, lastname, state
 from customers
 where state = 'GA' or state = 'NJ'
 order by lastname;
+
+-- Problem 5
+
+-- Problem 6
+
+-- Problem 7
+
+-- Problem 8
+
+-- Problem 9
+
+-- Problem 10
