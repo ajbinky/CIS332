@@ -70,4 +70,7 @@ from books b left join orderitems oi on b.isbn=oi.isbn
 order by 1;
 
 -- Problem 10
--- An EMPLOYEES table was added to the JustLee Books database to track employee information. Display a list of each employee's name, job ttitle, and manager's name. Use column aliases to clearly identify employee and manager name values. Include all employees in the list and sort by manager name.
+select fname || ' ' || lname as "EMPLOYEE NAME", job as "JOB TITLE", mgr as "MANAGER"
+from employees;
+
+
