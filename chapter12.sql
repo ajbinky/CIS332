@@ -27,7 +27,15 @@
 
 
 -- Problem 8
-
+select *
+  from customers
+  where customer# in (select customer#
+    from orders
+    where order# in (select order#
+      from orderitems
+      where isbn in (select isbn from books
+        where retail = (select min(retail)
+        from books))));
 
 -- Problem 9
 select count(distinct customer#) as "Customers of James Austin"
