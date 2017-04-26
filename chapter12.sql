@@ -2,6 +2,7 @@
   Andrew Behncke
   AJBinky@gmail.com
   AJBehncke1@dmacc.edu
+<<<<<<< HEAD
   Chapter 12
 */
 
@@ -38,24 +39,23 @@ where paideach*quantity < (
 );
 
 -- Problem 5
-select isbn, ()
-from orderitems
-group by isbn;
-
-select fname || ' ' || lname
-from author
-where authorid in (
-  select authorid
-  from bookauthor
-  where isbn in (
-    select isbn
-    from orderitems
-  )
-);
 
 -- Problem 6
+select *
+  from books
+  where category in (select distinct category
+    from books
+    where isbn in (select distinct oi.isbn
+      from orderitems oi join orders o using (order#)
+      where o.customer# = 1007));
 
 -- Problem 7
+select shipcity, shipstate
+  from orders
+  where order# = (select order#
+    from orders
+    where shipdate-orderdate = (select max(shipdate-orderdate)
+    from orders));
 
 -- Problem 8
 select *
